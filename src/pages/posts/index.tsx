@@ -1,12 +1,12 @@
 import { PostsOrder } from "../../hooks/services/posts/types";
-import { useGetPosts } from "../../hooks/services/posts/useGetPosts";
+import { useGetPostsInfinite } from "../../hooks/services/posts/useGetPosts";
 
 export const Posts = () => {
-  const { data } = useGetPosts({
-    first: 10,
-    order: PostsOrder.RANKING,
-    after: "MTA",
-  });
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetPostsInfinite({
+      first: 10,
+      order: PostsOrder.RANKING,
+    });
   console.log(data);
   return <div>index</div>;
 };

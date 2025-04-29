@@ -42,9 +42,20 @@ const GET_POSTS = `
   }
 `;
 
-export const useGetPosts = ({ first, order, after }: UseGetPostsProps) => {
-  return useInfiniteQuery({
-    queryKey: ["posts", order, first, after],
+type PostsData = PostsResponse["posts"];
+
+export const useGetPostsInfinite = ({
+  first,
+  order,
+}: Omit<UseGetPostsProps, "after">) => {
+  return useInfiniteQuery<
+    PostsData,
+    Error,
+    PostsData,
+    (string | number)[],
+    string | null
+  >({
+    queryKey: ["posts", order, first],
     queryFn: async ({ pageParam }) => {
       const response = await graphqlClient.request<PostsResponse>(GET_POSTS, {
         first,
@@ -53,7 +64,7 @@ export const useGetPosts = ({ first, order, after }: UseGetPostsProps) => {
       });
       return response.posts;
     },
-    initialPageParam: after || null,
+    initialPageParam: null,
     getNextPageParam: (lastPage) =>
       lastPage.pageInfo.hasNextPage ? lastPage.pageInfo.endCursor : null,
   });

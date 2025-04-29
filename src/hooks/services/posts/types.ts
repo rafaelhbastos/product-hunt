@@ -5,24 +5,23 @@ export enum PostsOrder {
 
 export interface UseGetPostsProps {
   first: number;
-  after?: string;
   order: PostsOrder;
 }
 
-interface PostMedia {
+export interface PostMedia {
   type: string;
   url: string;
   videoUrl?: string;
 }
 
-interface Topic {
+export interface Topic {
   node: {
     id: string;
     name: string;
   };
 }
 
-interface Post {
+export interface Post {
   id: string;
   name: string;
   tagline: string;
