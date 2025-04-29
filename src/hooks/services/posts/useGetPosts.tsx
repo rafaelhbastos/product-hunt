@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, InfiniteData } from "@tanstack/react-query";
 import { UseGetPostsProps, PostsResponse } from "./types";
 import { graphqlClient } from "../../../services";
 
@@ -44,14 +44,11 @@ const GET_POSTS = `
 
 type PostsData = PostsResponse["posts"];
 
-export const useGetPostsInfinite = ({
-  first,
-  order,
-}: Omit<UseGetPostsProps, "after">) => {
+export const useGetPostsInfinite = ({ first, order }: UseGetPostsProps) => {
   return useInfiniteQuery<
     PostsData,
     Error,
-    PostsData,
+    InfiniteData<PostsData>,
     (string | number)[],
     string | null
   >({

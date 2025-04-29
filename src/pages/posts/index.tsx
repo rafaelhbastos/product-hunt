@@ -1,12 +1,22 @@
+import { useState } from "react";
 import { PostsOrder } from "../../hooks/services/posts/types";
 import { useGetPostsInfinite } from "../../hooks/services/posts/useGetPosts";
+import { mapPostsPageResult } from "../../utils";
+import { Header } from "./Header";
 
 export const Posts = () => {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+  const [order, setOrder] = useState<PostsOrder>(PostsOrder.RANKING);
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useGetPostsInfinite({
       first: 10,
-      order: PostsOrder.RANKING,
+      order,
     });
-  console.log(data);
-  return <div>index</div>;
+  const allPosts = mapPostsPageResult(data);
+  const isFetching = isLoading || isFetchingNextPage;
+
+  return (
+    <div>
+      <Header order={order} setOrder={setOrder} />
+    </div>
+  );
 };

@@ -1,2 +1,77 @@
 @import "tailwindcss";
 
+html {
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+  background-color: var(--color-gray);
+}
+
+@layer theme {
+  :root {
+    /* Custom theme variables */
+    --color-primary: #FF6154;
+    --color-secondary: #FFF3ED;
+    --color-text: #111828;
+    --color-text-secondary: #334053;
+    --color-gray: #E9ECF0;
+
+  }
+}
+
+@layer components {
+  .app {
+    background-color: #FFF;
+    margin: 0 3.75rem;
+    padding: 0 1rem
+  }
+  .tabs {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+  }
+  .tab {
+    padding: 0.5rem 1rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+  .tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.2s ease;
+  }
+  .tab:hover {
+    color: var(--color-primary);
+  }
+  .tab:hover::after {
+    transform: scaleX(0.3);
+  }
+  .tab.active {
+    color: var(--color-primary);
+  }
+  .tab.active::after {
+    transform: scaleX(1);
+  }
+}
+
+@layer utilities {
+  .separator {
+    border-bottom: 1px solid var(--color-gray);
+  }
+  .background-gray {
+    background-color: var(--color-gray);
+  }
+}
+

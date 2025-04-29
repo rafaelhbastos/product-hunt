@@ -6,7 +6,9 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Posts />
+      <div className="app">
+        <Posts />
+      </div>
     </QueryClientProvider>
   );
 };

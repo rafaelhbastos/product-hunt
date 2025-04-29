@@ -8,20 +8,20 @@ export interface UseGetPostsProps {
   order: PostsOrder;
 }
 
-export interface PostMedia {
+interface PostMedia {
   type: string;
   url: string;
   videoUrl?: string;
 }
 
-export interface Topic {
+interface Topic {
   node: {
     id: string;
     name: string;
   };
 }
 
-export interface Post {
+interface Post {
   id: string;
   name: string;
   tagline: string;
