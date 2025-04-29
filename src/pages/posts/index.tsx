@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo } from "react";
 import { PostsOrder } from "@/hooks/services/posts/types";
 import { useGetPostsInfinite } from "@/hooks/services/posts/useGetPosts";
 import { fuzzySearch, mapPostsPageResult } from "@/utils";
@@ -16,7 +16,7 @@ export const Posts = () => {
     first: 10,
     order,
   });
-  const allPosts = mapPostsPageResult(data);
+  const allPosts = useMemo(() => mapPostsPageResult(data), [data]);
 
   const filteredPosts = useMemo(() => {
     if (!searchTerm) return allPosts;
@@ -32,6 +32,7 @@ export const Posts = () => {
       ]);
     });
   }, [allPosts, searchTerm]);
+
   return (
     <div>
       <Header
@@ -63,7 +64,7 @@ export const Posts = () => {
 
 const EndMessage = () => {
   return (
-    <p className="text-center text-secondary w-full py-2">
+    <p className="text-center text-gray-medium w-full py-2">
       No more posts to show.
     </p>
   );
@@ -71,7 +72,7 @@ const EndMessage = () => {
 
 const NoPostsFound = () => {
   return (
-    <p className="text-center text-secondary w-full py-2">
+    <p className="text-center text-gray-medium w-full py-2">
       No posts found matching your search.
     </p>
   );

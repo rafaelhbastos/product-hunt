@@ -25,11 +25,11 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
           className="rounded-lg"
         />
         <div className="flex flex-col gap-2 justify-between items-start">
-          <h2 className="text-xl font-bold transition-colors group-hover:!text-primary">
+          <h2 className="text-xl font-bold transition-colors group-hover:text-primary">
             {post.name}
           </h2>
-          <p className="text-sm text-secondary">{post.tagline}</p>
-          <div className="flex items-center gap-2 text-xs text-secondary">
+          <p className="text-sm text-gray-medium">{post.tagline}</p>
+          <div className="flex items-center gap-2 text-xs text-gray-medium">
             <FontAwesomeIcon icon={faTags} />
             {post.topics.edges.map((topic) => (
               <Fragment key={topic.node.id}>

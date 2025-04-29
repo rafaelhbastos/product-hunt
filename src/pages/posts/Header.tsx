@@ -41,10 +41,10 @@ export const Header = ({
         placeholder="Search"
         icon
       />
-      <div className="flex items-center justify-center p-2 background-gray rounded-md">
+      <div className="flex items-center justify-center p-2 bg-gray-light rounded-md">
         <p className="text-sm">{`Today, ${formattedDate}`}</p>
       </div>
-      <div className="background-gray rounded-full w-12 h-12 flex items-center justify-center">
+      <div className="bg-gray-light rounded-full w-12 h-12 flex items-center justify-center">
         <FontAwesomeIcon icon={faUser} color="var(--color-text)" />
       </div>
     </div>

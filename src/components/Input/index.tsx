@@ -10,7 +10,7 @@ export const Input: FC<InputProps> = ({ icon, ...props }) => {
     <div className="relative">
       <input className="input pl-8" {...props} />
       {icon && (
-        <div className="absolute left-2 top-1/2 transform -translate-y-1/2 text-secondary">
+        <div className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-medium">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </div>
       )}
