@@ -1,5 +1,5 @@
 import { InfiniteData } from "@tanstack/react-query";
-import { PostsResponse } from "../hooks/services/posts/types";
+import { PostsResponse } from "@/hooks/services/posts/types";
 
 export const mapPostsPageResult = (
   data: InfiniteData<PostsResponse["posts"]> | undefined

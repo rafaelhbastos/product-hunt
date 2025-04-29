@@ -13,13 +13,13 @@ export const Tabs = <T,>({ tabs, selected, onChange }: TabsProps<T>) => {
       {tabs.map((tab) => {
         const isActiveClass = selected === tab.value ? "active" : "";
         return (
-          <div
+          <button
             key={String(tab.value)}
             className={`tab ${isActiveClass}`}
             onClick={() => onChange(tab.value)}
           >
             {tab.label}
-          </div>
+          </button>
         );
       })}
     </div>

@@ -1,0 +1,14 @@
+.postsContainer {
+  overflow-y: scroll !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.postsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.postsContainer {
+  padding-right: 17px;
+  box-sizing: border-box;
+}

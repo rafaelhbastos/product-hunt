@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-html {
-  font-family: 'Roboto', 'Arial', sans-serif;
-}
-
-body {
-  background-color: var(--color-gray);
-}
-
 @layer theme {
   :root {
     /* Custom theme variables */
@@ -16,16 +8,20 @@ body {
     --color-text: #111828;
     --color-text-secondary: #334053;
     --color-gray: #E9ECF0;
+  }
+}
 
+@layer base {
+  html {
+    font-family: 'Roboto', 'Arial', sans-serif;
+  }
+
+  body {
+    background-color: var(--color-gray);
   }
 }
 
 @layer components {
-  .app {
-    background-color: #FFF;
-    margin: 0 3.75rem;
-    padding: 0 1rem
-  }
   .tabs {
     display: flex;
     justify-content: start;
@@ -64,6 +60,33 @@ body {
   .tab.active::after {
     transform: scaleX(1);
   }
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-text-secondary);
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.875rem;
+  }
+  .button:focus, .button:hover {
+    border: 1px solid var(--color-primary);
+  }
+  .input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-text-secondary);
+    width: 100%;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+  .input:focus, .input:hover {
+    border: 1px solid var(--color-primary);
+    outline: none;
+  }
 }
 
 @layer utilities {
@@ -73,5 +96,15 @@ body {
   .background-gray {
     background-color: var(--color-gray);
   }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+  .loading-spinner {
+    animation: spin 1s linear infinite;
+  }
 }
+
 
