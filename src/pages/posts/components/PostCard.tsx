@@ -4,6 +4,7 @@ import {
   faTags,
   faComment,
   faMountain,
+  faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@/components/Button";
@@ -25,9 +26,19 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
           className="rounded-lg"
         />
         <div className="flex flex-col gap-2 justify-between items-start">
-          <h2 className="text-xl font-bold transition-colors group-hover:text-primary">
-            {post.name}
-          </h2>
+          <div className="flex items-center gap-4">
+            <h2 className="text-xl font-bold transition-colors group-hover:text-primary">
+              {post.name}
+            </h2>
+            <a
+              href={post.website}
+              target="_blank"
+              rel="external noreferrer"
+              className="!hidden group-hover:!block hover:text-primary"
+            >
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="xs" />
+            </a>
+          </div>
           <p className="text-sm text-gray-medium">{post.tagline}</p>
           <div className="flex items-center gap-2 text-xs text-gray-medium">
             <FontAwesomeIcon icon={faTags} />
