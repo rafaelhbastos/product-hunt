@@ -16,7 +16,7 @@ interface PostCardProps {
 export const PostCard: FC<PostCardProps> = ({ post }) => {
   const lastTopic = post.topics.edges[post.topics.edges.length - 1].node.id;
   return (
-    <div className="group hover:shadow-lg transition-all p-4 bg-white rounded-lg flex justify-between align-center gap-4 m-4 cursor-pointer">
+    <div className="group hover:shadow-lg transition-all p-4 bg-white rounded-lg flex justify-between align-center gap-4 m-4 cursor-pointer max-size-540:relative max-size-540:pr-20">
       <div className="w-full h-full flex items-start gap-4 ">
         <img
           src={post.thumbnail.url}
@@ -51,12 +51,12 @@ export const PostCard: FC<PostCardProps> = ({ post }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between gap-2">
-        <Button className="flex-col w-16">
+      <div className="flex items-center justify-between gap-2 max-size-620:flex-col max-size-540:absolute max-size-540:top-1/2 max-size-540:-translate-y-1/2 max-size-540:-right-6">
+        <Button className="flex-col w-16 max-size-620:px-0.5 max-size-620:py-1 max-size-540:bg-white">
           <FontAwesomeIcon icon={faComment} />
           <p>{post.commentsCount}</p>
         </Button>
-        <Button className="flex-col w-16">
+        <Button className="flex-col w-16 max-size-620:px-0.25 max-size-620:py-0.5 max-size-540:bg-white">
           <FontAwesomeIcon icon={faMountain} />
           <p>{post.votesCount}</p>
         </Button>

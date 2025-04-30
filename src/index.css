@@ -15,6 +15,10 @@
   --color-gray-dark: #111828;
   --color-gray-medium: #334053;
   --color-gray-light: #E9ECF0;
+
+  --breakpoint-size-620: 620px;
+  --breakpoint-size-540: 540px;
+  --breakpoint-size-415: 415px;
 }
 
 @layer components {
@@ -76,7 +80,8 @@
   .input {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    border: 1px solid var(--color-text-secondary);
+    border: 1px solid;
+    @apply border-gray-medium;
     width: 100%;
     cursor: pointer;
     font-size: 0.875rem;

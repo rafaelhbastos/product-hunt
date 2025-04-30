@@ -29,20 +29,24 @@ export const Header = ({
   });
 
   return (
-    <div className="flex justify-between items-center separator p-4 bg-white gap-4">
+    <div className="flex justify-between items-center separator p-4 bg-white gap-4 max-size-620:flex-wrap max-size-415:flex-col">
       <Tabs
         tabs={tabs}
         selected={order}
         onChange={(value) => setOrder(value)}
+        className="max-size-620:order-3 max-size-620:w-full"
+        btnClassName="max-size-620:w-full"
       />
-      <Input
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search"
-        icon
-      />
-      <div className="flex items-center justify-center p-2 bg-gray-light rounded-md">
-        <p className="text-sm">{`Today, ${formattedDate}`}</p>
+      <div className="flex items-center justify-center gap-4 max-size-620:justify-between">
+        <Input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search"
+          icon
+        />
+        <div className="flex items-center justify-center p-2 bg-gray-light rounded-md">
+          <p className="text-sm">{`Today, ${formattedDate}`}</p>
+        </div>
       </div>
       <div className="bg-gray-light rounded-full w-12 h-12 flex items-center justify-center">
         <FontAwesomeIcon icon={faUser} color="var(--color-text)" />

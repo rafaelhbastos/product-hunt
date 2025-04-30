@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 interface TabsProps<T> {
   tabs: {
     label: string;
@@ -5,17 +7,28 @@ interface TabsProps<T> {
   }[];
   selected: T;
   onChange: (value: T) => void;
+  className?: string;
+  btnClassName?: string;
 }
 
-export const Tabs = <T,>({ tabs, selected, onChange }: TabsProps<T>) => {
+export const Tabs = <T,>({
+  tabs,
+  selected,
+  onChange,
+  className,
+  btnClassName,
+}: TabsProps<T>) => {
   return (
-    <div className="tabs h-full">
+    <div className={classNames("tabs h-full", className)}>
       {tabs.map((tab) => {
-        const isActiveClass = selected === tab.value ? "active" : "";
         return (
           <button
             key={String(tab.value)}
-            className={`tab ${isActiveClass}`}
+            className={classNames(
+              "tab",
+              { active: selected === tab.value },
+              btnClassName
+            )}
             onClick={() => onChange(tab.value)}
           >
             {tab.label}
